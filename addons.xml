@@ -77,24 +77,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.x9iptv"
-       name="X9-IPTV"
-       version="1.0.6"
-       provider-name="Filmspeler.nl">
-    <requires>
-        <import addon="xbmc.python" version="2.1.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource"
-               library="run.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-    <summary lang="en">X9-IPTV</summary>
-    <description lang="en">X9 IPTV plugin</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="repository.wizardbuilder" name="easyuse" version="1.0" provider-name="wizardbuilder">
 	<extension point="xbmc.addon.repository" name="wizardbuilder">
 		<info compressed="false">https://raw.githubusercontent.com/wizardbuilder/livetv/master/addons.xml</info>

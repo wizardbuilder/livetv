@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.wizardbuilder" name="easyuse" version="1.0" provider-name="wizardbuilder">
+	<extension point="xbmc.addon.repository" name="wizardbuilder">
+		<info compressed="false">https://raw.githubusercontent.com/wizardbuilder/livetv/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/wizardbuilder/livetv/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/wizardbuilder/livetv/master</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Wizard Builder Repo</summary>
+		<description>Wizard Builder repo bla</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+

@@ -31,7 +31,7 @@
 
 <addon id="plugin.video.livetv"
        name="IPTV"
-       version="1.0.6~beta6"
+       version="1.0.6~beta5"
        provider-name="Filmspeler.nl">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>

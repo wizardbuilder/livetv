@@ -29,6 +29,26 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.livetv"
+       name="livetv"
+       version="1.0.1"
+       provider-name="easyuse">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.simplejson" version="3.3.0"/>
+    </requires>
+    <extension point="xbmc.service" library="service.py" start="login"/>
+    <extension point="xbmc.python.pluginsource"
+               library="run.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+    <summary lang="en">IPTV</summary>
+    <description lang="en">IPTV plugin</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.streamztv" name=" [B][COLOR lime]StreamZ
 [/COLOR][COLOR white]TV[/COLOR][/B]"
        version="120"

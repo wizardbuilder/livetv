@@ -30,9 +30,9 @@
 </addon>
 
 <addon id="plugin.video.livetv"
-       name="livetv"
-       version="1.0.1"
-       provider-name="wizardbuilder">
+       name="IPTV"
+       version="1.0.6~beta5"
+       provider-name="Filmspeler.nl">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.simplejson" version="3.3.0"/>

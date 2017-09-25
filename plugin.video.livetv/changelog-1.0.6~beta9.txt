@@ -4,8 +4,7 @@
 - Add animated arrows to signup prompt
 - Sign in automatically when a new account is created
 - Raise error when user tries to sign up using a username with a space
-[B]Version 1.0.5[/B]
-test
+
 [B]Version 1.0.4[/B]
 - Add user agents to epg guide grabber
 

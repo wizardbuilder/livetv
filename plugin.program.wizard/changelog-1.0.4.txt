@@ -1,0 +1,11 @@
+v1.0.4
+Add support for installing on kodi 17 or higher
+
+v1.0.3
+Fix bug with installer
+
+v1.0.2
+Masked code
+
+v1.0
+Initial Release

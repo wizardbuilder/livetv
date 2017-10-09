@@ -17,35 +17,6 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.kindertube"
-       name="KinderTube"
-       version="1.0.0"
-       provider-name="KAOSbox - based on The[COLOR tan]Highway[/COLOR]'s version">
-  <requires>
-  	<import addon="xbmc.python" version="2.1.0"/>
-  	<import addon="script.module.urlresolver" />
-  	<import addon="plugin.video.vimeo" optional="true" />
-  	<import addon="plugin.video.youtube" />
-  	<import addon="script.module.metahandler" optional="true" />
-  	<import addon="script.module.addon.common" optional="true" />
-  	<import addon="script.common.plugin.cache" optional="true" />
-  	<import addon="script.module.t0mm0.common" optional="true" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-  	<provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-  	<summary></summary>
-  	<description>De leukste kinderfilmpjes</description>
-  	<disclaimer>By using this, you take reponsibility for anything that happens.</disclaimer>
-  	<language>nl</language>
-  	<platform>all</platform>
-    <forum></forum>
-    <website></website>
-    <source></source>
-  </extension>
-</addon>
-
 <addon id="plugin.video.livetv"
        name="IPTV"
        version="1.0.6~beta16"
@@ -63,34 +34,6 @@
     <summary lang="en">LiveTv</summary>
     <description lang="en">LiveTV</description>
     <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.streamztv" name=" [B][COLOR lime]StreamZ
-[/COLOR][COLOR white]TV[/COLOR][/B]"
-       version="120"
-       provider-name="streamZ.tv">
-  <requires>
-    <import addon="script.module.requests" version="2.9.1"/>
-	<import addon="script.module.simplejson" version="3.3.0"/>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="1.0.0"/>
-    <import addon="plugin.video.youtube" version="5.3.6"/>
-    <import addon="script.module.urlresolver"  version="2.1.2"/>
-    <import addon="script.module.liveresolver" version="0.1.24"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary>streamZ TV on Kodi</summary>
-    <description>This plugin fetches video sources freely available on the internet and plays on Kodi compatible devices. Its all inspiration and adaptation.
-
-[B]Follow us on twitter @AndroidstreamZ[/B]</description>
-<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon or have any affiliation with any website owners</disclaimer>
-    <platform>all</platform>
-	<forum lang="en">http://streamz.tv</forum>
-    <website lang="en">https://twitter.com/Androidstreamz</website>
   </extension>
 </addon>
 

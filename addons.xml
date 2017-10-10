@@ -51,8 +51,8 @@
 </addon>
 
 <addon id="script.service.patchbot"
-       name="Patch Bot kodi 16"
-       version="0.0.8"
+       name="Patch Bot kodi 17 gebruik alleen voor windows IOS raspberry pi"
+       version="0.0.9"
        provider-name="Josh.5">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

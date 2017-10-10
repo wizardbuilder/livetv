@@ -1,0 +1,27 @@
+[B][COLOR=FF56ADDA]0.0.8 -  11OCT16[/COLOR][/B]
+• Added small delay before download starts. Faster machines will cause an error if this is not there
+
+[B][COLOR=FF56ADDA]0.0.7 -  04AUG16[/COLOR][/B]
+• Add Kodi "force close" support for other Linux distributions, Windows and Android
+
+[B][COLOR=FF56ADDA]0.0.6 -  02AUG16[/COLOR][/B]
+• Some builds play a video on start. 
+Add double player check with delay to get around this
+
+[B][COLOR=FF56ADDA]0.0.5 -  05JUNE16[/COLOR][/B]
+• Add disable feature
+• Update notifications/dialogs
+• Add Kodi version check
+
+[B][COLOR=FF56ADDA]0.0.4 -  10MAR16[/COLOR][/B]
+• Ensure addon only runs when system is not in use
+
+[B][COLOR=FF56ADDA]0.0.3 - 09DEC15[/COLOR][/B]
+• Added notification for failed downloads/extract
+
+[B][COLOR=FF56ADDA]0.0.2 - 06DEC15[/COLOR][/B]
+• Added md5 check to prevent downloading twice
+• Improved logging and error handling
+
+[B][COLOR=FF56ADDA]0.0.1 - 05DEC15[/COLOR][/B]
+• initial Release

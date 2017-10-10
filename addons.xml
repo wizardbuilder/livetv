@@ -50,10 +50,25 @@
 	</extension>
 </addon>
 
+<addon id="script.service.patchbot17"
+       name="Patch Bot voor kodi 17(voor windows,raspberrypi,mac)"
+       version="0.0.10"
+       provider-name="josh.5">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Auto-sync system patches</summary>
+    <description lang="en">Monitor and automatically install patches generated remotely via System Sync.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="script.service.patchbotvKODI16"
        name="Patch Bot voor kodi 16"
        version="0.0.9"
-       provider-name="Josh.5">
+       provider-name="wizardbuilder easyuse">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

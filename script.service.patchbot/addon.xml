@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.service.patchbot17"
-       name="Patch Bot voor kodi 17"
-       version="0.0.13"
-       provider-name="josh.5">
+<addon id="script.service.patchbot"
+       name="Patch Bot kodi 16"
+       version="0.0.8"
+       provider-name="Josh.5">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

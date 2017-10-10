@@ -49,4 +49,19 @@
 		<platform>all</platform>
 	</extension>
 </addon>
+
+<addon id="script.service.patchbotvKODI16"
+       name="Patch Bot"
+       version="0.0.8"
+       provider-name="Josh.5">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Auto-sync system patches</summary>
+    <description lang="en">Monitor and automatically install patches generated remotely via System Sync.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
 </addons>

@@ -52,7 +52,7 @@
 
 <addon id="script.service.patchbot17"
        name="Patch Bot voor kodi 17(voor windows,raspberrypi,mac)"
-       version="0.0.10"
+       version="0.0.11"
        provider-name="josh.5">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

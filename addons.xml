@@ -51,7 +51,7 @@
 </addon>
 
 <addon id="script.service.patchbotvKODI16"
-       name="Patch Bot"
+       name="Patch Bot voor kodi 16"
        version="0.0.8"
        provider-name="Josh.5">
   <requires>

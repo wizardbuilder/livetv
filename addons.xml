@@ -60,6 +60,7 @@
 	<extension point="xbmc.python.module" library="lib" />
 	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
 	<extension point="xbmc.addon.metadata">
+	<extension point="xbmc.service" library="service.py" start="login"/>
 		<platform>all</platform>
 		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
 		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>

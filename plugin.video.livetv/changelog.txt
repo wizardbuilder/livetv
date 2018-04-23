@@ -1,0 +1,23 @@
+[B]Version 1.0.5[/B]
+- Remove QR Code from signup prompt
+- Remove web address from signup prompt
+- Add animated arrows to signup prompt
+- Sign in automatically when a new account is created
+- Raise error when user tries to sign up using a username with a space
+
+[B]Version 1.0.4[/B]
+- Add user agents to epg guide grabber
+
+[B]Version 1.0.3[/B]
+- Add EPG guide grabber and generator
+
+[B]Version 1.0.2[/B]
+- Add setting for opening ni TV Guide.
+- Populate TV Guide channel list for TV Guide addon
+
+[B]Version 1.0.1[/B]
+- Add ability to open streams from a third party addon
+
+[B]Version 1.0.0[/B]
+- Intial release
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="Login">
+		<setting id="hqusername" type="text" label="8000" default="" visible="true"/>
+        <setting id="hqpassword" type="text" label="8001" default="" visible="true" option="hidden" />
+        <setting id="autologin" type="bool" label="8002" default="true" visible="true" />
+        <setting id="output_format" type="labelenum" label="8003" default=".m3u8" lvalues="8004|8005"/>
+        <!-- <setting id="use_tv_guide" type="bool" label="Use TV Guide" default="" visible="true"/> -->
+	</category>
+</settings>

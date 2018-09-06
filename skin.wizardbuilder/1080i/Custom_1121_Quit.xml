@@ -20,20 +20,20 @@
 				<width>745</width>
 				<aspectratio>stretch</aspectratio>
 				 <include>DialogGLs</include>
-				<control type="button" id="704" description="Shutdown">
+				<control type="button" id="714" description="Shutdown">
                         <include>DialogButt</include>
                         <visable>System.CanPowerdown</visable>
                         <label>13005</label>
-                        <onclick>Powerdown()</onclick>
+                        <onclick>Quit()</onclick>
                         <onclick>Close</onclick>
                     </control>
-                    <control type="button" id="705" description="Reboot">
+                    <control type="button" id="715" description="Reboot">
                         <include>DialogButt</include>
                         <visable>System.CanReboot</visable>
                         <label>$LOCALIZE[13013]</label>
                         <onclick>Reset()</onclick>
                         <onclick>Close</onclick>
-					<control type="button" id="702" description="Suspend">
+					    <control type="button" id="716" description="Suspend">
                         <include>DialogButt</include>
                         <visable>System.CanSuspend</visable>
                         <label>$LOCALIZE[13011]</label>

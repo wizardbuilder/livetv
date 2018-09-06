@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon  id="plugin.video.embycon" 
+        name="Clickflix connect"
+        version="1.5.30"
+        provider-name="Team Easy2use.tv">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video audio</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="login">
+  </extension>
+  <extension point="kodi.context.item" library="contextmenu.py">
+    <menu id="kodi.core.main">
+      <item library="contextmenu.py">
+        <label>30326</label>
+        <visible>!String.IsEmpty(ListItem.Property(id)) + String.StartsWith(ListItem.FolderPath,plugin://plugin.video.embycon)</visible><!-- + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song)]</visible>-->
+      </item>
+    </menu>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language>en</language>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>https://emby.media/community/index.php?/forum/99-kodi/</forum>
+    <website>https://faush01.github.io/plugin.video.embycon/</website>
+    <source>https://github.com/faush01/plugin.video.embycon</source>
+    <summary lang="en_GB">Browse and play your Clickflix media library.</summary>
+    <description lang="en_GB">An addon to allow you to browse and playback your Clickflix® (www.clickflix.tv) Movie, TV Show and Music collections.</description>
+  </extension>
+</addon>

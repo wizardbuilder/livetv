@@ -1,0 +1,752 @@
+# Gnu General Public License - see LICENSE.TXT
+
+import sys
+import json
+import urllib
+
+import xbmcplugin
+import xbmcaddon
+
+from downloadutils import DownloadUtils
+from kodi_utils import addMenuDirectoryItem, HomeWindow
+from simple_logging import SimpleLogging
+from translation import i18n
+from datamanager import DataManager
+
+log = SimpleLogging(__name__)
+downloadUtils = DownloadUtils()
+
+__addon__ = xbmcaddon.Addon()
+
+
+def showGenreList(params):
+    log.debug("showGenreList: {0}", params)
+
+    server = downloadUtils.getServer()
+    if server is None:
+        return
+
+    parent_id = params.get("parent_id")
+    item_type = params.get("item_type")
+
+    kodi_type = "Movies"
+    emby_type = "Movie"
+    if item_type is not None and item_type == "tvshow":
+        emby_type = "Series"
+        kodi_type = "tvshows"
+
+    url = ("{server}/emby/Genres?" +
+           "SortBy=SortName" +
+           "&SortOrder=Ascending" +
+           "&IncludeItemTypes=" + emby_type +
+           "&Recursive=true" +
+           "&UserId={userid}")
+
+    if parent_id is not None:
+        url += "&parentid=" + parent_id
+
+    data_manager = DataManager()
+    result = data_manager.GetContent(url)
+
+    if result is not None:
+        result = result.get("Items")
+    else:
+        result = []
+
+    collections = []
+    xbmcplugin.setContent(int(sys.argv[1]), 'genres')
+
+    for genre in result:
+        item_data = {}
+        item_data['title'] = genre.get("Name")
+        item_data['media_type'] = kodi_type
+        item_data['thumbnail'] = downloadUtils.getArtwork(genre, "Primary", server=server)
+
+        url = ("{server}/emby/Users/{userid}/Items" +
+               "?Fields={field_filters}" +
+               "&Recursive=true" +
+               "&GenreIds=" + genre.get("Id") +
+               "&IncludeItemTypes=" + emby_type +
+               "&ImageTypeLimit=1")
+
+        if parent_id is not None:
+            url += "&parentid=" + parent_id
+
+        item_data['path'] = url
+        collections.append(item_data)
+
+    for collection in collections:
+        url = sys.argv[0] + ("?url=" + urllib.quote(collection['path']) +
+                             "&mode=GET_CONTENT" +
+                             "&media_type=" + collection["media_type"])
+        log.debug("addMenuDirectoryItem: {0} - {1} - {2}", collection.get('title'), url, collection.get("thumbnail"))
+        addMenuDirectoryItem(collection.get('title', i18n('unknown')), url, thumbnail=collection.get("thumbnail"))
+
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+
+def showMovieAlphaList():
+    log.debug("== ENTER: showMovieAlphaList() ==")
+
+    settings = xbmcaddon.Addon()
+    server = downloadUtils.getServer()
+    if server is None:
+        return
+
+    collections = []
+
+    item_data = {}
+    item_data['title'] = "#"
+    item_data['media_type'] = "Movies"
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&NameLessThan=A' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    alphaList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z"]
+
+    for alphaName in alphaList:
+        item_data = {}
+        item_data['title'] = alphaName
+        item_data['media_type'] = "Movies"
+        item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                             '?Fields={field_filters}' +
+                             '&Recursive=true' +
+                             '&NameStartsWith=' + alphaName +
+                             '&IncludeItemTypes=Movie' +
+                             '&ImageTypeLimit=1&format=json')
+        collections.append(item_data)
+
+    for collection in collections:
+        url = (sys.argv[0] + "?url=" + urllib.quote(collection['path']) +
+               "&mode=GET_CONTENT&media_type=" + collection["media_type"])
+        log.debug("addMenuDirectoryItem: {0} ({1})", collection.get('title'), url)
+        addMenuDirectoryItem(collection.get('title', i18n('unknown')), url)
+
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+def showYearsList():
+
+    server = downloadUtils.getServer()
+    if server is None:
+        return
+
+    jsonData = downloadUtils.downloadUrl("{server}/emby/Years" +
+                                         "?SortBy=SortName" +
+                                         "&SortOrder=Descending" +
+                                         "&IncludeItemTypes=Movie" +
+                                         "&Recursive=true" +
+                                         "&UserId={userid}" +
+                                         "&format=json")
+    log.debug("YEAR_LIST_DATA: {0}", jsonData)
+
+    result = json.loads(jsonData)
+    if result is not None:
+        result = result.get("Items")
+    else:
+        result = []
+
+    collections = []
+
+    for year in result:
+        item_data = {}
+        item_data['title'] = year.get("Name")
+        item_data['media_type'] = "Movies"
+        #item_data['thumbnail'] = server + "/Years/" +  year.get("Name") + "/Images/Thumb"
+        item_data['path'] = ('{server}/emby/Users/{userid}/Items'
+                             '?Fields={field_filters}' +
+                             '&Recursive=true' +
+                             '&Years=' + year.get("Name") +
+                             '&IncludeItemTypes=Movie' +
+                             '&ImageTypeLimit=1' +
+                             '&format=json')
+        collections.append(item_data)
+
+    for collection in collections:
+        url = sys.argv[0] + ("?url=" + urllib.quote(collection['path']) +
+                             "&mode=GET_CONTENT" +
+                             "&media_type=" + collection["media_type"])
+        log.debug("addMenuDirectoryItem: {0} ({1})", collection.get('title'), url)
+        addMenuDirectoryItem(collection.get('title', i18n('unknown')), url)#, thumbnail=collection.get("thumbnail"))
+
+    xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_LABEL)
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+
+def displaySections():
+    log.debug("== ENTER: displaySections() ==")
+    xbmcplugin.setContent(int(sys.argv[1]), 'files')
+
+    server = downloadUtils.getServer()
+    if server is None:
+        return
+
+    # Add collections
+    collections = getCollections()
+
+    if collections:
+        for collection in collections:
+            if collection.get("item_type") == "plugin_link":
+                plugin_path = collection['path']
+                addMenuDirectoryItem(collection.get('title', i18n('unknown')), plugin_path,
+                                     thumbnail=collection.get("thumbnail"))
+            else:
+                url = (sys.argv[0] + "?url=" + urllib.quote(collection['path']) +
+                       "&mode=GET_CONTENT&media_type=" + collection["media_type"])
+                if collection.get("name_format") is not None:
+                    url += "&name_format=" + urllib.quote(collection.get("name_format"))
+                log.debug("addMenuDirectoryItem: {0} ({1})", collection.get('title'), url)
+                addMenuDirectoryItem(collection.get('title', i18n('unknown')), url,
+                                     thumbnail=collection.get("thumbnail"))
+
+        addMenuDirectoryItem(i18n('Speelfilms jaar'), "plugin://plugin.video.embycon/?mode=MOVIE_YEARS")
+        addMenuDirectoryItem(i18n('Speelfilms genre'), "plugin://plugin.video.embycon/?mode=GENRES&item_type=movie")
+        addMenuDirectoryItem(i18n('Speelfilms az'), "plugin://plugin.video.embycon/?mode=MOVIE_ALPHA")
+        addMenuDirectoryItem(i18n('Speelfilms genre'), "plugin://plugin.video.embycon/?mode=GENRES&item_type=tvshow")
+        addMenuDirectoryItem(i18n('Zoeken'), "plugin://plugin.video.embycon/?mode=SEARCH")
+
+
+
+
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+
+def getCollections():
+    log.debug("== ENTER: getCollections ==")
+
+    server = downloadUtils.getServer()
+    if server is None:
+        return []
+
+    userid = downloadUtils.getUserId()
+
+    if userid == None or len(userid) == 0:
+        log.debug("No userid so returning []")
+        return []
+
+    data_manager = DataManager()
+    result = data_manager.GetContent("{server}/emby/Users/{userid}/Items/Root?format=json")
+    if result is None:
+        return []
+
+    parentid = result.get("Id")
+    log.debug("parentid: {0}", parentid)
+
+    htmlpath = "{server}/emby/Users/{userid}/items?ParentId=" + parentid + "&Sortby=SortName&format=json"
+    result = data_manager.GetContent(htmlpath)
+
+    if result is not None:
+        result = result.get("Items")
+    else:
+        result = []
+
+    collections = []
+
+    for item in result:
+        item_name = item.get("Name")
+
+        collection_type = item.get('CollectionType', None)
+        log.debug("CollectionType: {0}", collection_type)
+        log.debug("Title: {0}", item_name)
+
+        if collection_type == "music":
+            item_data = {}
+            item_data['title'] = item_name + i18n('_all_albums')
+            item_data['thumbnail'] = downloadUtils.getArtwork(item, "Primary", server=server)
+            item_data['media_type'] = 'MusicAlbums'
+            item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                                 '?Recursive=true' +
+                                 '&ParentId=' + item.get("Id") +
+                                 '&IncludeItemTypes=MusicAlbum' +
+                                 '&ImageTypeLimit=1' +
+                                 '&EnableImageTypes=Primary,Backdrop,Banner,Thumb' +
+                                 '&format=json')
+            collections.append(item_data)
+
+            item_data = {}
+            item_data['title'] = item_name + i18n('_all_artists')
+            item_data['thumbnail'] = downloadUtils.getArtwork(item, "Primary", server=server)
+            item_data['media_type'] = 'MusicArtists'
+            item_data['path'] = ('{server}/emby/Artists/AlbumArtists' +
+                                 '?Recursive=true' +
+                                 '&ParentId=' + item.get("Id") +
+                                 '&ImageTypeLimit=1' +
+                                 '&EnableImageTypes=Primary,Backdrop,Banner,Thumb' +
+                                 '&format=json')
+            collections.append(item_data)
+
+        if collection_type in ["movies", "boxsets"]:
+            collections.append({
+                'title': item_name,
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&IsVirtualUnaired=false' +
+                         '&CollapseBoxSetItems=true' +
+                         '&Recursive=true' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': collection_type})
+
+        if collection_type == "tvshows":
+            collections.append({
+                'title': item_name,
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': collection_type})
+            collections.append({
+                'title': item_name + i18n('_unwatched'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsUnplayed' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Series' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': 'tvshows'})
+            collections.append({
+                'title': item_name + i18n('_in_progress'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsResumable' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': 'Episodes',
+                'name_format': 'Episode|episode_name_format'})
+            collections.append({
+                'title': item_name + i18n('_latest'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items/Latest' +
+                         '?ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&SortBy=DateCreated' +
+                         '&SortOrder=Descending' +
+                         '&Filters=IsUnplayed' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': 'Episodes',
+                'name_format': 'Episode|episode_name_format'})            
+            collections.append({
+                'title': item_name + i18n('_recently_added'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&SortBy=DateCreated' +
+                         '&SortOrder=Descending' +
+                         '&Filters={IsUnplayed,}IsNotFolder' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': 'Episodes',
+                'name_format': 'Episode|episode_name_format'})
+            collections.append({
+                'title': item_name + i18n('_next_up'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Shows/NextUp/?Userid={userid}' +
+                         '&ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsUnplayed,IsNotFolder' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': 'Episodes',
+                'name_format': 'Episode|episode_name_format'})
+            collections.append({
+                'title': item_name + i18n('_genres'),
+                'item_type': 'plugin_link',
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': 'plugin://plugin.video.embycon/?mode=GENRES&item_type=tvshow&parent_id=' + item.get("Id"),
+                'media_type': 'tvshows'})
+
+        if collection_type == "movies":
+            collections.append({
+                'title': item_name + i18n('_unwatched'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsUnplayed' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': collection_type})
+            collections.append({
+                'title': item_name + i18n('_in_progress'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsResumable' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': collection_type})
+            collections.append({
+                'title': item_name + i18n('_recently_added'),
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': ('{server}/emby/Users/{userid}/Items' +
+                         '?ParentId=' + item.get("Id") +
+                         '&Limit={ItemLimit}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&Fields={field_filters}' +
+                         '&SortBy=DateCreated' +
+                         '&SortOrder=Descending' +
+                         '&Filters={IsUnplayed,}IsNotFolder' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json'),
+                'media_type': collection_type})
+            collections.append({
+                'title': item_name + i18n('_genres'),
+                'item_type': 'plugin_link',
+                'thumbnail': downloadUtils.getArtwork(item, "Primary", server=server),
+                'path': 'plugin://plugin.video.embycon/?mode=GENRES&item_type=movie&parent_id=' + item.get("Id"),
+                'media_type': collection_type})
+
+    # Add standard nodes
+    item_data = {}
+    item_data['title'] = i18n('Speelfilms alles')
+    item_data['media_type'] = 'Movies'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Speelfilms niet gezien')
+    item_data['media_type'] = 'Movies'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsUnplayed' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Speelfilms laaden')
+    item_data['media_type'] = 'Movies'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsResumable' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Speefilms laatst toegevoegd')
+    item_data['media_type'] = 'Movies'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&SortBy=DateCreated' +
+                         '&Fields={field_filters}' +
+                         '&SortOrder=Descending' +
+                         '&Filters={IsUnplayed,}IsNotFolder' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('movies_favorites')
+    item_data['media_type'] = 'Movies'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&Filters=IsFavorite' +
+                         '&IncludeItemTypes=Movie' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('movies_boxsets')
+    item_data['media_type'] = 'BoxSets'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&IncludeItemTypes=BoxSet' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Alle Tv series')
+    item_data['media_type'] = 'tvshows'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&IncludeItemTypes=Series' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Tv seres niet gezien')
+    item_data['media_type'] = 'tvshows'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&Filters=IsUnplayed' +
+                         '&IncludeItemTypes=Series' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('TV_favorieten')
+    item_data['media_type'] = 'tvshows'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Fields={field_filters}' +
+                         '&Recursive=true' +
+                         '&Filters=IsFavorite' +
+                         '&IncludeItemTypes=Series' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('TV series laatste afleveringen')
+    item_data['media_type'] = 'Episodes'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items/Latest' +
+                         '?Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&GroupItems=true' +
+                         '&SortBy=DateCreated' +
+                         '&Fields={field_filters}' +
+                         '&SortOrder=Descending' +
+                         '&Filters={IsUnplayed}' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    item_data['name_format'] = 'Episode|episode_name_format'
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Afleveringen aan het laden')
+    item_data['media_type'] = 'Episodes'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsResumable' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    item_data['name_format'] = 'Episode|episode_name_format'
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('Afleveringen laatst toegevoegd')
+    item_data['media_type'] = 'Episodes'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&SortBy=DateCreated' +
+                         '&Fields={field_filters}' +
+                         '&SortOrder=Descending' +
+                         '&Filters={IsUnplayed,}IsNotFolder' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    item_data['name_format'] = 'Episode|episode_name_format'
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('episodes_up_next')
+    item_data['media_type'] = 'Episodes'
+    item_data['path'] = ('{server}/emby/Shows/NextUp/?Userid={userid}' +
+                         '&Limit={ItemLimit}' +
+                         '&Recursive=true' +
+                         '&Fields={field_filters}' +
+                         '&Filters=IsUnplayed,IsNotFolder' +
+                         '&IsVirtualUnaired=false' +
+                         '&IsMissing=False' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    item_data['name_format'] = 'Episode|episode_name_format'
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('upcoming_tv')
+    item_data['media_type'] = 'Episodes'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Recursive=true' +
+                         '&SortBy=PremiereDate' +
+                         '&Fields={field_filters}' +
+                         '&SortOrder=Ascending' +
+                         '&IsVirtualUnaired=true' +
+                         '&IsNotFolder' +
+                         '&IncludeItemTypes=Episode' +
+                         '&ImageTypeLimit=1' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('muziek alle albums')
+    item_data['media_type'] = 'MusicAlbums'
+    item_data['path'] = ('{server}/emby/Users/{userid}/Items' +
+                         '?Recursive=true' +
+                         '&IncludeItemTypes=MusicAlbum' +
+                         '&ImageTypeLimit=1' +
+                         '&EnableImageTypes=Primary,Backdrop,Banner,Thumb' +
+                         '&format=json')
+    collections.append(item_data)
+
+    item_data = {}
+    item_data['title'] = i18n('music_all_artists')
+    item_data['media_type'] = 'MusicArtists'
+    item_data['path'] = ('{server}/emby/Artists/AlbumArtists' +
+                         '?Recursive=true' +
+                         '&ImageTypeLimit=1' +
+                         '&EnableImageTypes=Primary,Backdrop,Banner,Thumb' +
+                         '&format=json')
+    collections.append(item_data)
+
+
+    return collections
+
+
+def showWidgets():
+
+    url = ("{server}/emby/Movies/Recommendations" +
+           "?userId={userid}" +
+           "&categoryLimit=1" +
+           "&ItemLimit={ItemLimit}" +
+           "&format=json" +
+           "&ImageTypeLimit=1" +
+           "&IsMissing=False")
+    addMenuDirectoryItem(i18n('movies_recommendations'),
+                         "plugin://plugin.video.embycon/?mode=GET_CONTENT&media_type=Movies&url=" + urllib.quote(url))
+
+    url = ("{server}/emby/Users/{userid}/Items" +
+           "?Limit={ItemLimit}" +
+           "&format=json" +
+           "&ImageTypeLimit=1" +
+           "&IsMissing=False" +
+           "&Filters={IsUnplayed,}IsNotFolder" +
+           "&Recursive=true" +
+           "&SortBy=Random" +
+           "&SortOrder=Descending" +
+           "&IsVirtualUnaired=false" +
+           "&IsMissing=False" +
+           "&IncludeItemTypes=Movie")
+    addMenuDirectoryItem(i18n('movies_random'),
+                         "plugin://plugin.video.embycon/?mode=GET_CONTENT&media_type=Movies&url=" + urllib.quote(url))
+
+    #addMenuDirectoryItem(i18n('movies_recently_added'), 'plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&type=recent_movies')
+    #addMenuDirectoryItem(i18n('movies_in_progress'), 'plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&type=inprogress_movies')
+    #addMenuDirectoryItem(i18n('episodes_recently_added'), 'plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&type=recent_episodes')
+    #addMenuDirectoryItem(i18n('episodes_in_progress'), 'plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&type=inprogress_episodes')
+    #addMenuDirectoryItem(i18n('episodes_up_next'), 'plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&type=nextup_episodes')
+
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+
+def showSearch():
+    addMenuDirectoryItem(i18n('movies'), 'plugin://plugin.video.embycon/?mode=NEW_SEARCH&item_type=Movie')
+    addMenuDirectoryItem(i18n('tvshows'), 'plugin://plugin.video.embycon/?mode=NEW_SEARCH&item_type=Series')
+    addMenuDirectoryItem(i18n('episodes'), 'plugin://plugin.video.embycon/?mode=NEW_SEARCH&item_type=Episode')
+
+    xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
+
+def set_library_window_values():
+    log.debug("set_library_window_values called")
+    home_window = HomeWindow()
+
+    already_set = home_window.getProperty("view_item.0.name")
+    if already_set:
+        return
+
+    data_manager = DataManager()
+    url = "{server}/emby/Users/{userid}/Views"
+    result = data_manager.GetContent(url)
+
+    if result is None:
+        return
+
+    result = result.get("Items")
+    server = downloadUtils.getServer()
+
+    index = 0
+    for item in result:
+
+        type = item.get("CollectionType")
+        if type in ["movies", "boxsets", "music", "tvshows"]:
+            name = item.get("Name")
+            id = item.get("Id")
+
+            # plugin.video.embycon-
+            prop_name = "view_item.%i.name" % index
+            home_window.setProperty(prop_name, name)
+            log.debug("set_library_window_values: plugin.video.embycon-{0}={1}", prop_name, name)
+
+            prop_name = "view_item.%i.id" % index
+            home_window.setProperty(prop_name, id)
+            log.debug("set_library_window_values: plugin.video.embycon-{0}={1}", prop_name, id)
+
+            prop_name = "view_item.%i.type" % index
+            home_window.setProperty(prop_name, type)
+            log.debug("set_library_window_values: plugin.video.embycon-{0}={1}", prop_name, type)
+
+            thumb = downloadUtils.getArtwork(item, "Primary", server=server)
+            prop_name = "view_item.%i.thumb" % index
+            home_window.setProperty(prop_name, thumb)
+            log.debug("set_library_window_values: plugin.video.embycon-{0}={1}", prop_name, thumb)
+
+            index += 1
+

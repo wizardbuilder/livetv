@@ -37,36 +37,6 @@
   </extension>
 </addon>
 
-<addon  id="plugin.video.vip-easy2use.tv"
-        name="vip"
-        version="1.4.65"
-        provider-name="Wizardbuilder">
-  <requires>
-    <import addon="xbmc.python" version="2.25.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video audio</provides>
-  </extension>
-  <extension point="xbmc.service" library="service.py" start="login">
-  </extension>
-  <extension point="kodi.context.item" library="contextmenu.py">
-    <menu id="kodi.core.main">
-      <item library="contextmenu.py">
-        <label>30326</label>
-        <visible>!String.IsEmpty(ListItem.Property(id)) + String.StartsWith(ListItem.FolderPath,plugin.video.vip-easy2use.tv)</visible><!-- + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song)]</visible>-->
-      </item>
-    </menu>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <language>en</language>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <website>https://easy2use.tv/</website>
-    <summary lang="en_GB">Browse and play your vip server media library from easy2use.tv.</summary>
-    <description lang="en_GB">An addon to allow you to browse and playback your Clickflix® (www.clickflix.tv) Movie, TV Show and Music collections.</description>
-  </extension>
-</addon>
-
 <addon id="plugin.video.youtube" name="YouTube" version="6.0.0~beta8" provider-name="bromix">
     <requires>
         <import addon="xbmc.python" version="2.20.0"/>
@@ -168,26 +138,6 @@
 		<summary>Wizard Builder Repo</summary>
 		<description>Wizard Builder provides you the best solution for your kodi platform</description>
 		<platform>all</platform>
-	</extension>
-</addon>
-
-<addon id="script.module.urlresolver" name="URLResolver" version="4.0.09" provider-name="Eldorado, tknorris, jsergio">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0" />
-		<import addon="plugin.video.youtube" optional="true" />
-		<import addon="script.module.python.twitch" optional="true" />
-		<import addon="script.module.cryptopy" version="1.2.6" optional="true" />
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
-	<extension point="xbmc.addon.metadata">
-	<extension point="xbmc.service" library="service.py" start="login"/>
-		<platform>all</platform>
-		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
-		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
-		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
-		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
-        <source>https://github.com/jsergio123/script.module.urlresolver</source>
 	</extension>
 </addon>
 

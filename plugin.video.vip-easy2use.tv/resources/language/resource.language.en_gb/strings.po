@@ -1,0 +1,715 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EmbyCon\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Server Address (Deze moet easyuse.tv blijven): "
+msgstr ""
+
+msgctxt "#30001"
+msgid "Server Poort (Niet veranderen!): "
+msgstr ""
+
+msgctxt "#30002"
+msgid "Use HTTPS: "
+msgstr ""
+
+msgctxt "#30003"
+msgid "Verify HTTPS Certificate: "
+msgstr ""
+
+msgctxt "#30005"
+msgid "Uw Easy2use E-mail adres: "
+msgstr ""
+
+msgctxt "#30006"
+msgid "Wachtwoord: "
+msgstr ""
+
+msgctxt "#30007"
+msgid "Samba Username: "
+msgstr ""
+
+msgctxt "#30008"
+msgid "Samba Password: "
+msgstr ""
+
+msgctxt "#30010"
+msgid "Enable performance profiling"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Detect Local Server"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Niet veranderen!"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Clickflix"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Netwerk"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Apparaat naam"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Toon verbonden apparaten"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Formaat gefilterde afleveringsnaam"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Formaat gefilterde afleveringsnaam"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Vlak seizoen afvlakken"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Toon alle afleveringen"
+msgstr ""
+
+msgctxt "#30022"
+msgid "geavanceerd"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Hide unwatched episode details"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Uw Easy2use E-mail adres:"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Easy2use Wachtwoord:"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Widget item select action"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Show watched in Onlangs toegevoegd"
+msgstr ""
+
+msgctxt "#30044"
+msgid "Foutief gebruikersnaam/wachtwoord"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Gebruikersnaam niet gevonden"
+msgstr ""
+
+msgctxt "#30052"
+msgid "Deleting"
+msgstr ""
+
+msgctxt "#30053"
+msgid "Waiting for server to Verwijderen"
+msgstr ""
+
+msgctxt "#30060"
+msgid "%s (Secured)"
+msgstr ""
+
+msgctxt "#30061"
+msgid "%s (User-defined)"
+msgstr ""
+
+msgctxt "#30062"
+msgid "Klik op OK of Enter om verder te gaan"
+msgstr ""
+
+msgctxt "#30063"
+msgid "N/A"
+msgstr ""
+
+msgctxt "#30091"
+msgid "Confirm Verwijderen?"
+msgstr ""
+
+msgctxt "#30092"
+msgid "Warning: This action will Verwijderen the media files from the server."
+msgstr ""
+
+msgctxt "#30110"
+msgid "Interface"
+msgstr ""
+
+msgctxt "#30112"
+msgid "Wij van easy2use wensen u veel kijkplezier."
+msgstr ""
+
+msgctxt "#30113"
+msgid "A.u.b. Even geduld, bij drukte kan dit scherm maximaal paar sec duren"
+msgstr ""
+
+msgctxt "#30114"
+msgid "On Resume Jump Back Seconds"
+msgstr ""
+
+msgctxt "#30116"
+msgid "Add unwatched counts to names"
+msgstr ""
+
+msgctxt "#30118"
+msgid "Add resume percent to names"
+msgstr ""
+
+msgctxt "#30120"
+msgid "Toon laadvoortgang"
+msgstr ""
+
+msgctxt "#30121"
+msgid "On Resume"
+msgstr ""
+
+msgctxt "#30125"
+msgid "Klaar"
+msgstr ""
+
+msgctxt "#30126"
+msgid "A.u.b. Even geduld. bij prime time kan dit scherm maximaal 30 sec duren. : "
+msgstr ""
+
+msgctxt "#30128"
+msgid "Afspeel fout"
+msgstr ""
+
+msgctxt "#30129"
+msgid "Standaard"
+msgstr ""
+
+msgctxt "#30135"
+msgid "Error"
+msgstr ""
+
+msgctxt "#30136"
+msgid "Clickflix service is momenteel even offline"
+msgstr ""
+
+msgctxt "#30137"
+msgid "Herstart aub easy2use software"
+msgstr ""
+
+msgctxt "#30139"
+msgid "No Media Type Set"
+msgstr ""
+
+msgctxt "#30150"
+msgid "Skin does not support setting views"
+msgstr ""
+
+msgctxt "#30151"
+msgid "Select item action (Requires Restart)"
+msgstr ""
+
+msgctxt "#30163"
+msgid "Add (cc) if subtitle is available"
+msgstr ""
+
+msgctxt "#30166"
+msgid "Select Server"
+msgstr ""
+
+msgctxt "#30167"
+msgid "Server Detection Succeeded"
+msgstr ""
+
+msgctxt "#30168"
+msgid "Found server"
+msgstr ""
+
+msgctxt "#30169"
+msgid "Address: "
+msgstr ""
+
+msgctxt "#30180"
+msgid "Inloggen (zelfde inlog als Easy2use)"
+msgstr ""
+
+msgctxt "#30181"
+msgid "Include plot"
+msgstr ""
+
+msgctxt "#30182"
+msgid "Include media stream info"
+msgstr ""
+
+msgctxt "#30183"
+msgid "Include people"
+msgstr ""
+
+msgctxt "#30200"
+msgid "URL error: %s"
+msgstr ""
+
+msgctxt "#30201"
+msgid "Unable to connect to server"
+msgstr ""
+
+msgctxt "#30202"
+msgid "Error Extracting Server host:port"
+msgstr ""
+
+msgctxt "#30203"
+msgid "Error in ArtworkRotationThread"
+msgstr ""
+
+msgctxt "#30204"
+msgid "Unable to connect to host"
+msgstr ""
+
+msgctxt "#30205"
+msgid "Error in LoadMenuOptionsThread"
+msgstr ""
+
+msgctxt "#30206"
+msgid "Playback Type"
+msgstr ""
+
+msgctxt "#30207"
+msgid "Playback"
+msgstr ""
+
+msgctxt "#30208"
+msgid "Transcode Bitrate (Kbits)"
+msgstr ""
+
+msgctxt "#30209"
+msgid "File Direct Path"
+msgstr ""
+
+msgctxt "#30210"
+msgid "HTTP Direct Stream"
+msgstr ""
+
+msgctxt "#30211"
+msgid "HTTP Transcode"
+msgstr ""
+
+msgctxt "#30212"
+msgid "Transcode Max Width"
+msgstr ""
+
+msgctxt "#30213"
+msgid "Transcode Force 8 Bit"
+msgstr ""
+
+msgctxt "#30214"
+msgid "Events"
+msgstr ""
+
+msgctxt "#30215"
+msgid "On Playback Stop (100% = disabled)"
+msgstr ""
+
+msgctxt "#30217"
+msgid "Prompt to Verwijderen aflevering na %"
+msgstr ""
+
+msgctxt "#30218"
+msgid "Speel volgende aflevering na %"
+msgstr ""
+
+msgctxt "#30219"
+msgid " - Prompt before play"
+msgstr ""
+
+msgctxt "#30220"
+msgid "Prompt to Verwijderen speelfilm na %"
+msgstr ""
+
+msgctxt "#30221"
+msgid "On Playback Stop"
+msgstr ""
+
+msgctxt "#30229"
+msgid "Series"
+msgstr ""
+
+msgctxt "#30230"
+msgid "Default View"
+msgstr ""
+
+msgctxt "#30231"
+msgid "Speelfilms"
+msgstr ""
+
+msgctxt "#30232"
+msgid "Collecties"
+msgstr ""
+
+msgctxt "#30233"
+msgid "Series"
+msgstr ""
+
+msgctxt "#30234"
+msgid "Seizoenen"
+msgstr ""
+
+msgctxt "#30235"
+msgid "Afleveringen"
+msgstr ""
+
+msgctxt "#30236"
+msgid "Action for h265(hevc) video files"
+msgstr ""
+
+msgctxt "#30237"
+msgid "Start vanaf het begin"
+msgstr ""
+
+msgctxt "#30238"
+msgid "Playback Overrides"
+msgstr ""
+
+msgctxt "#30245"
+msgid "Volgende pagina"
+msgstr ""
+
+msgctxt "#30246"
+msgid "Zoeken"
+msgstr ""
+
+msgctxt "#30247"
+msgid "Widgets"
+msgstr ""
+
+msgctxt "#30248"
+msgid "Clickflix - Speelfilms"
+msgstr ""
+
+msgctxt "#30249"
+msgid "Clickflix - TV Series"
+msgstr ""
+
+msgctxt "#30250"
+msgid "Onbekend"
+msgstr ""
+
+msgctxt "#30251"
+msgid "Speelfilms (Genres)"
+msgstr ""
+
+msgctxt "#30252"
+msgid "Speelfilms (A-Z)"
+msgstr ""
+
+msgctxt "#30253"
+msgid "Gebruiker wijzigen"
+msgstr ""
+
+msgctxt "#30254"
+msgid "Toon instellingen"
+msgstr ""
+
+msgctxt "#30255"
+msgid "Speelfilms (Jaar)"
+msgstr ""
+
+msgctxt "#30256"
+msgid "Speelfilms - Alles"
+msgstr ""
+
+msgctxt "#30257"
+msgid "Speelfilms - Onlangs toegevoegd"
+msgstr ""
+
+msgctxt "#30258"
+msgid "Speelfilms - aan het laden"
+msgstr ""
+
+msgctxt "#30259"
+msgid "Speelfilms - Favorieten"
+msgstr ""
+
+msgctxt "#30260"
+msgid "Collecties"
+msgstr ""
+
+msgctxt "#30261"
+msgid "TV Series - Alles"
+msgstr ""
+
+msgctxt "#30262"
+msgid "TV Series - Favorieten"
+msgstr ""
+
+msgctxt "#30263"
+msgid "Afleveringen - onlangs toegevoegd"
+msgstr ""
+
+msgctxt "#30264"
+msgid "Afleveringen - aan het laden"
+msgstr ""
+
+msgctxt "#30265"
+msgid "Afleveringen - Volgende"
+msgstr ""
+
+msgctxt "#30266"
+msgid "Komende aflevering"
+msgstr ""
+
+msgctxt "#30267"
+msgid " - Bezig"
+msgstr ""
+
+msgctxt "#30268"
+msgid " - Onlangs toegevoegd"
+msgstr ""
+
+msgctxt "#30269"
+msgid "Speelfilms - Random"
+msgstr ""
+
+msgctxt "#30270"
+msgid "Mark watched"
+msgstr ""
+
+msgctxt "#30271"
+msgid "Markeers als niet bekeken"
+msgstr ""
+
+msgctxt "#30272"
+msgid "Maak deze als favoriet"
+msgstr ""
+
+msgctxt "#30273"
+msgid "Favoriet verwijderen"
+msgstr ""
+
+msgctxt "#30274"
+msgid "Delete"
+msgstr ""
+
+msgctxt "#30275"
+msgid "Force Transcode"
+msgstr ""
+
+msgctxt "#30276"
+msgid "Extra Resume Prompt Detected"
+msgstr ""
+
+msgctxt "#30277"
+msgid "ClickflixC moet vragen om door te gaan met partily gespeeld items, Kodi kan ook vragen, dit kan een dubbele prompt veroorzaken. Wilt u de dubbele vraag verwijderen?"
+msgstr ""
+
+msgctxt "#30278"
+msgid " - Next Up"
+msgstr ""
+
+msgctxt "#30279"
+msgid "Series - Niet gezien"
+msgstr ""
+
+msgctxt "#30280"
+msgid "Missing Title"
+msgstr ""
+
+msgctxt "#30281"
+msgid "Your skin %s is currently not supported"
+msgstr ""
+
+msgctxt "#30282"
+msgid "No Clickflix servers on your local network detected"
+msgstr ""
+
+msgctxt "#30283"
+msgid "Play Next Episode"
+msgstr ""
+
+msgctxt "#30284"
+msgid "Wil je de volgende aflevering afspelen?"
+msgstr ""
+
+msgctxt "#30285"
+msgid " - Niet gezien"
+msgstr ""
+
+msgctxt "#30286"
+msgid "Speelfilms - Niet gezien"
+msgstr ""
+
+msgctxt "#30287"
+msgid "Series - Laatste"
+msgstr ""
+
+msgctxt "#30288"
+msgid " - Laatste"
+msgstr ""
+
+msgctxt "#30289"
+msgid "Series (Genres)"
+msgstr ""
+
+msgctxt "#30290"
+msgid "All"
+msgstr ""
+
+msgctxt "#30291"
+msgid "Select Audio Stream"
+msgstr ""
+
+msgctxt "#30292"
+msgid "Select Subtitle Stream"
+msgstr ""
+
+msgctxt "#30293"
+msgid "Cache Artwork"
+msgstr ""
+
+msgctxt "#30294"
+msgid "Notice"
+msgstr ""
+
+msgctxt "#30295"
+msgid "To use this feature you need to enabled HTTP control in Kodi"
+msgstr ""
+
+msgctxt "#30296"
+msgid "Delete"
+msgstr ""
+
+msgctxt "#30297"
+msgid "Delete all existing textures?"
+msgstr ""
+
+msgctxt "#30298"
+msgid "Deleting Textures"
+msgstr ""
+
+msgctxt "#30299"
+msgid "Cache Textures"
+msgstr ""
+
+msgctxt "#30300"
+msgid "Cache all Clickflix media images as local Kodi textures?"
+msgstr ""
+
+msgctxt "#30301"
+msgid "Caching Textures"
+msgstr ""
+
+msgctxt "#30302"
+msgid "Existing Textures: "
+msgstr ""
+
+msgctxt "#30303"
+msgid "Missing Textures: "
+msgstr ""
+
+msgctxt "#30304"
+msgid "Loaded Textures: "
+msgstr ""
+
+msgctxt "#30305"
+msgid "Niet gevonden: %s"
+msgstr ""
+
+msgctxt "#30306"
+msgid "Playback starting: %s"
+msgstr ""
+
+msgctxt "#30307"
+msgid "Play Trailer"
+msgstr ""
+
+msgctxt "#30308"
+msgid "Select Trailer"
+msgstr ""
+
+msgctxt "#30309"
+msgid "Select Media Source"
+msgstr ""
+
+msgctxt "#30310"
+msgid "Enable Clickflix remote control"
+msgstr ""
+
+msgctxt "#30311"
+msgid "Clickflix encountered an error!"
+msgstr ""
+
+msgctxt "#30312"
+msgid "Do you want to send this error to the devs?"
+msgstr ""
+
+msgctxt "#30313"
+msgid "Menu"
+msgstr ""
+
+msgctxt "#30314"
+msgid "Speel af"
+msgstr ""
+
+msgctxt "#30315"
+msgid "Suppress notifications for connection errors"
+msgstr ""
+
+msgctxt "#30316"
+msgid "Connection Error"
+msgstr ""
+
+msgctxt "#30317"
+msgid "Speel alles"
+msgstr ""
+
+msgctxt "#30318"
+msgid "Muziek - Alle Albums"
+msgstr ""
+
+msgctxt "#30319"
+msgid "Muziek - Alle Album Artiesten"
+msgstr ""
+
+msgctxt "#30320"
+msgid " - Albums"
+msgstr ""
+
+msgctxt "#30321"
+msgid " - Album Artiest"
+msgstr ""
+
+msgctxt "#30322"
+msgid "Auto Hervatten"
+msgstr ""
+
+msgctxt "#30323"
+msgid "Controlleer voor nieuwe updates"
+msgstr ""
+
+msgctxt "#30324"
+msgid "Speelfilms - Aangeraden"
+msgstr ""
+
+msgctxt "#30325"
+msgid " - Genres"
+msgstr ""
+
+msgctxt "#30326"
+msgid "[Clickflix Menu]"
+msgstr ""
+
+msgctxt "#30327"
+msgid "Toon aflevering"
+msgstr ""

@@ -39,7 +39,7 @@
 
 <addon id="plugin.video.vip-easy2use.tv"
         name="vip"
-        version="1.5.43"
+        version="1.5.44"
         provider-name="Wizardbuilder">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>

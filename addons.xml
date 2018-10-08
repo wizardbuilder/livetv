@@ -19,7 +19,7 @@
 
 <addon id="plugin.video.livetv"
        name="IPTV"
-       version="1.0.6~beta35"
+       version="1.0.6~beta36"
        provider-name="wizardbuilder">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -39,7 +39,7 @@
 
 <addon id="plugin.video.vip-easy2use.tv"
         name="vip"
-        version="1.5.45"
+        version="1.5.46"
         provider-name="Wizardbuilder">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>

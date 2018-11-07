@@ -1,0 +1,268 @@
+# Kodi Media Center language file
+# Addon Name: .Iptv-Installer
+# Addon id: script.Iptv-Installer
+# Addon Provider: Filmspeler.nl
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: admin@Filmspeler.nl\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/KODI-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#Page1 labels and text:
+msgctxt "#7000"
+msgid "[B]Sign In[/B]"
+msgstr ""
+
+msgctxt "#7001"
+msgid "[B]Email address or username[/B]"
+msgstr ""
+
+msgctxt "#7002"
+msgid "[B]Password[/B]"
+msgstr ""
+
+msgctxt "#7003"
+msgid "[B]Don't have an account?[/B]"
+msgstr ""
+
+msgctxt "#7004"
+msgid "[B]Click on sign up button to activate your[CR]live television.[/B]"
+msgstr ""
+
+#Page2 labels and text:
+msgctxt "#7005"
+msgid "[B]Sign up for trial[/B]"
+msgstr ""
+
+msgctxt "#7006"
+msgid "[B]First and last name[/B]"
+msgstr ""
+
+msgctxt "#7007"
+msgid "[B]Your email address[/B][CR](an email confirmation will be[CR]sent to this address)"
+msgstr ""
+
+msgctxt "#7008"
+msgid "[B]Choose a username[/B][CR](should consist of more than 6 characters[CR]and may contain only letters, numbers[CR]and underscores)"
+msgstr ""
+
+msgctxt "#7009"
+msgid "[B]Choose a password[/B][CR](must consist of more than 6 characters)"
+msgstr ""
+
+msgctxt "#7010"
+msgid "[B]Confirm your password[/B]"
+msgstr ""
+
+#Buttons
+msgctxt "#7011"
+msgid "Inloggen"
+msgstr ""
+
+msgctxt "#7012"
+msgid "Registreren"
+msgstr ""
+
+msgctxt "#7013"
+msgid "CANCEL"
+msgstr ""
+
+msgctxt "#7014"
+msgid "Submit"
+msgstr ""
+
+msgctxt "#7015"
+msgid "Remember Login"
+msgstr ""
+
+msgctxt "#7016"
+msgid "WIFI"
+msgstr ""
+
+msgctxt "#7100"
+msgid "Please enter coupon code"
+msgstr ""
+
+msgctxt "#7101"
+msgid "Please enter your First and Last Name"
+msgstr ""
+
+msgctxt "#7102"
+msgid "Please enter valid Email"
+msgstr ""
+
+msgctxt "#7103"
+msgid "Please enter valid Username. It must contain at least 6 characters made up of only 0-9 or A-z"
+msgstr ""
+
+msgctxt "#7104"
+msgid "[COLOR red][B]Empty Fields![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#7105"
+msgid "[COLOR red][B]Invalid Password![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#7106"
+msgid "Password must contain at least 6 letters or digits"
+msgstr ""
+
+msgctxt "#7107"
+msgid "[COLOR red][B]Password mismatch![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#7108"
+msgid "Password and Password Confirmation are different."
+msgstr ""
+
+msgctxt "#7109"
+msgid "Please re-enter both..."
+msgstr ""
+
+msgctxt "#7110"
+msgid "[B]Invalid Coupon Field:[/B]"
+msgstr ""
+
+msgctxt "#7111"
+msgid "[B]Invalid First Name:[/B]"
+msgstr ""
+
+msgctxt "#7112"
+msgid "[B]Invalid Last Name:[/B]"
+msgstr ""
+
+msgctxt "#7113"
+msgid "[B]Invalid Email Address:[/B]"
+msgstr ""
+
+msgctxt "#7114"
+msgid "[B]Invalid Username:[/B]"
+msgstr ""
+
+msgctxt "#7115"
+msgid "[B]Invalid Password:[/B]"
+msgstr ""
+
+msgctxt "#7116"
+msgid "[B]Invalid Password Confirmation:[/B]"
+msgstr ""
+
+msgctxt "#7117"
+msgid "[COLOR red][B]You allready have made an account![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#7118"
+msgid "[COLOR red][B]Error logging in![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#7119"
+msgid "Downloading TV Guide"
+msgstr ""
+
+msgctxt "#8000"
+msgid "Username"
+msgstr ""
+
+msgctxt "#8001"
+msgid "Password"
+msgstr ""
+
+msgctxt "#8002"
+msgid "Auto Login"
+msgstr ""
+
+msgctxt "#8003"
+msgid "Video Container"
+msgstr ""
+
+msgctxt "#8004"
+msgid ".ts"
+msgstr ""
+
+msgctxt "#8005"
+msgid ".m3u8"
+msgstr ""
+
+msgctxt "#8006"
+msgid ""
+msgstr ""
+
+msgctxt "#8007"
+msgid ""
+msgstr ""
+
+msgctxt "#8008"
+msgid ""
+msgstr ""
+
+msgctxt "#8009"
+msgid ""
+msgstr ""
+
+msgctxt "#8010"
+msgid ""
+msgstr ""
+
+msgctxt "#8011"
+msgid "7 days Free"
+msgstr ""
+
+msgctxt "#8012"
+msgid "[B]You can also get 7 days[CR]activation for trial.[/B]"
+msgstr ""
+
+msgctxt "#8013"
+msgid "[B]Warnning![/B]"
+msgstr ""
+
+msgctxt "#8014"
+msgid "[COLOR red][B]Your Expire time is [/B][/COLOR]"
+msgstr ""
+
+msgctxt "#8015"
+msgid "[COLOR red][B]You have no valid account, Would you like to exit?[/B][/COLOR]"
+msgstr ""
+
+msgctxt "#8016"
+msgid "Your license is left [COLOR red][B]%s[/B][/COLOR] days. Purchase your valid license please."
+msgstr ""
+
+msgctxt "#8017"
+msgid "License warnning"
+msgstr ""
+
+msgctxt "#8018"
+msgid "[COLOR red][B]Your license already expired[/B][/COLOR]. Would you like to purchase your valid license? Otherwise you have to shutdown."
+msgstr ""
+
+msgctxt "#8019"
+msgid "Yes, go to login."
+msgstr ""
+
+msgctxt "#8020"
+msgid "No, yet."
+msgstr ""
+
+msgctxt "#8021"
+msgid "No, shutdown."
+msgstr ""
+
+msgctxt "#8022"
+msgid "SIGN UP FOR FREE!"
+msgstr ""
+
+msgctxt "#8023"
+msgid "[COLOR red][B]Sign up success![/B][/COLOR]"
+msgstr ""
+
+msgctxt "#8024"
+msgid "Please check your mailbox to validate your account. And then retry to login and enjoy!"
+msgstr ""

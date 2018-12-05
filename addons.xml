@@ -37,7 +37,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.uranus" version="2018.11.28" name="Uranus" provider-name="Uranus">
+<addon id="plugin.video.uranus" version="2018.11.28" name="Uranus" provider-name="Uranus NL versie easy2use.tv">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.uranus.artwork" version="2018.02.20"/>
@@ -54,10 +54,10 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary lang="en">Uranus movies and TV shows</summary>
-        <description lang="en">Watch movies and TV shows in high quality! Please note that this addon is not an official part of the Kodi media player and is therefore not to be mentioned within Kodi's official support channels. This addon has nothing to do with the media player itself, nor its intended use, it is simply a third party plugin which has been added to your system.</description>
-        <disclaimer lang="en">The author does not host any content, nor is he affiliated with any of the content providers.</disclaimer>
+        <description lang="en">Vertaald door easy2use.tv Bekijk films en tv-shows in hoge kwaliteit! Merk op dat deze add-on geen officieel onderdeel van de Kodi-mediaspeler is en daarom niet in de officiële ondersteuningskanalen van Kodi vermeld mag worden. Deze add-on heeft niets te maken met de mediaspeler zelf, noch met het bedoelde gebruik, het is gewoon een externe plug-in die aan uw systeem is toegevoegd.</description>
+        <disclaimer lang="en">De auteur host geen inhoud en is ook niet gelieerd aan een van de contentproviders.</disclaimer>
         <platform>all</platform>
-        <news>Fork of Elysium credit to original Devs / Replaced more lists / Added Christmas Collection</news>
+        <news>Vertaald door Easy2use.tv</news>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>

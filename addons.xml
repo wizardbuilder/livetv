@@ -431,7 +431,7 @@ Removed: Nudeflix</news>
 		<import addon="script.module.beautifulsoup4"/>
 	</requires>
 	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.script" library="addon.py"/
+    <extension point="xbmc.service" library="service.py" start="login" />
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">Exodus Redux</summary>
@@ -444,7 +444,7 @@ Removed: Nudeflix</news>
 		<import addon="script.module.beautifulsoup4"/>
 	</requires>
 	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.script" library="addon.py"/
+	<extension point="xbmc.service" library="service.py" start="login" />
 	<extension point="xbmc.python.pluginsource" library="lib/default.py">
 		<provides>executable</provides>
 	</extension>
@@ -467,7 +467,7 @@ Removed: Nudeflix</news>
 		<import addon="plugin.video.gdrive" optional="true" />
 	</requires>
 	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.script" library="addon.py"/
+	<extension point="xbmc.service" library="service.py" start="login" />
 	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="inputstream.adaptive"
-  version="2.0.19"
+  version="2.0.20"
   name="InputStream Adaptive"
   provider-name="peak3d">
   <requires></requires>
@@ -12,8 +12,8 @@
     tags="true"
     listitemprops="license_type|license_key|license_data|manifest_type|server_certificate|stream_headers|manifest_update_parameter"
     library_windows="inputstream.adaptive.dll"/>
-  <extension point="xbmc.service" library="service.py" start="login"/>
   <extension point="xbmc.addon.metadata">
+  <extension point="xbmc.service" library="service.py" start="login"/>
     <summary lang="en">InputStream client for adaptive streams</summary>
     <description lang="en">InputStream client for adaptive streams</description>
     <platform>windows</platform>

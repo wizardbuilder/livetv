@@ -108,7 +108,6 @@
     </extension>
 
     <extension point="xbmc.addon.metadata">
-	<extension point="xbmc.service" library="service.py" start="startup"/>
         <reuselanguageinvoker>true</reuselanguageinvoker>
         <platform>all</platform>
         <summary lang="en">Retrospect (previously XBMC Online TV) is a plugin that allows the playback of a lot of TV shows that are available (legally) via the broadcasters websites.</summary>

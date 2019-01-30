@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon
+  id="inputstream.adaptive"
+  version="2.0.19"
+  name="InputStream Adaptive"
+  provider-name="peak3d">
+  <requires></requires>
+  <extension
+    point="kodi.inputstream"
+    name="adaptive"
+    extension=""
+    tags="true"
+    listitemprops="license_type|license_key|license_data|manifest_type|server_certificate|stream_headers|manifest_update_parameter"
+    library_windows="inputstream.adaptive.dll"/>
+  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">InputStream client for adaptive streams</summary>
+    <description lang="en">InputStream client for adaptive streams</description>
+    <platform>windows</platform>
+  </extension>
+</addon>
+
 <addon  id="net.rieter.xot"
         version="4.1.7.47"
         name="Retrospect"
@@ -604,9 +625,8 @@ Removed: Nudeflix</news>
 		<import addon="script.module.unidecode" version="0.4.14"/>
 	</requires>
 	<extension point="xbmc.python.library" library="default.py"/>
-	<extension point="xbmc.python.script" library="addon.py"/>
-    <extension point="xbmc.service" library="service.py" start="login" />
-    <extension point="xbmc.addon.metadata">
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
 		<news>Template improvements and bug fixes</news>
 		<description lang="bg">Добавка за облици, която осигурява просто управление и списък с потребителски преки пътища (изисква поддръжка от облика)</description>
 		<description lang="de">Add-on für Skins für einfache Bearbeitung und Auflistung von benutzerdefinierten Verknüpfungen (erfordert Skin-Unterstützung)</description>

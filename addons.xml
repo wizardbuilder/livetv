@@ -251,7 +251,7 @@ Revert to stable code
 
 <addon id="plugin.video.livetv"
        name="IPTV"
-       version="1.0.6~beta44"
+       version="1.0.6~beta45"
        provider-name="wizardbuilder">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>

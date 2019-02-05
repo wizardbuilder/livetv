@@ -53,8 +53,8 @@ class gd:
 		clickflix_enabled_bouquet = [2,3,10]
 		clickflix_addon = xbmcaddon.Addon(id='plugin.video.vip-easy2use.tv')
 		clickflix_addon_data = xbmc.translatePath(clickflix_addon.getAddonInfo("profile"))
-		EMBY_URL  = "movies.clickflix.tv"
-		EMBY_PORT = "80"
+		EMBY_URL  = "clickflix.ddns.net"
+		EMBY_PORT = "8096"
 	except:
 		clickflix_addon_exists = False
 

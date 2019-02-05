@@ -1,6 +1,6 @@
 <settings>
-    <setting id="ipaddress" value="movies.clickflix.tv" />
-    <setting id="port" value="80" />
+    <setting id="ipaddress" value="clickflix.ddns.net" />
+    <setting id="port" value="8096" />
     <setting id="username" value="default" />
     <setting id="password" value="default" />
 </settings>

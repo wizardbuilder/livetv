@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.wizardbuilder" version="0.0.10" name="skin voor easy2use Kodi Leia 18" provider-name="wizardbuilder">
+<addon
+    id="skin.wizardbuilder18"
+    version="0.0.10"
+    name="skin wizardbuilder kodi 18 leia (easy2use.tv)"
+    provider-name="wizardbuilder">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <import addon="script.skinshortcuts" version="0.4.0"/>
@@ -17,7 +21,7 @@
     <extension
     point="xbmc.gui.skin"
     defaultthemename="Textures.xbt"
-    debugging="true"
+    debugging="false"
     effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
     </extension>

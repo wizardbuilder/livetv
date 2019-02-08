@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1117">
+    <backgroundcolor>Background</backgroundcolor>
+    <defaultcontrol always="true">50</defaultcontrol>
+    <include>OpenClose</include>
+    <controls>
+        <include>Background</include>
+        <control type="label" description="Heading">
+            <right>60</right>
+            <top>40</top>
+            <width>720</width>
+            <height>55</height>
+            <font>size42B</font>
+            <align>right</align>
+            <textcolor>textcolor2</textcolor>
+            <label>31052</label>
+        </control>
+        <control type="group">
+            <!--control type="image" description="Line bottom">
+                <top>490</top>
+                <width>1920</width>
+                <height>1</height>
+                <texture>images/Line1.png</texture>
+            </control-->
+            <control type="group">
+                <control type="panel" id="50">
+                    <width>1800</width>
+                    <height>600</height>
+                    <top>310</top>
+                    <left>60</left>
+                    <onleft>50</onleft>
+                    <onright>50</onright>
+                    <onup>520</onup>
+                    <ondown>noop</ondown>
+                    <scrolltime tween="sine" easing="inout">280</scrolltime>
+                    <itemlayout height="300" width="300">
+                        <control type="Image" description="THUMB">
+                            <visible>!IsEmpty(Listitem.thumb)</visible>
+                            <left>20</left>
+                            <top>48</top>
+                            <height>168</height>
+                            <width>260</width>
+                            <texture diffuse="images/diffusehome.png">$INFO[ListItem.thumb]</texture>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                        </control>
+                        <control type="Image" description="THUMB">
+                            <visible>IsEmpty(Listitem.thumb)</visible>
+                            <left>20</left>
+                            <top>48</top>
+                            <height>168</height>
+                            <width>260</width>
+                            <texture diffuse="images/diffusehome.png">$INFO[ListItem.label2]</texture>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                        </control>
+                        <control type="label" description="Main Label">
+                            <centerleft>150</centerleft>
+                            <top>220</top>
+                            <width>300</width>
+                            <height>24</height>
+                            <align>center</align>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="230" width="370">
+                        <control type="group">
+                            <animation effect="zoom" start="100" end="130" time="120" center="auto" tween="Back" easing="Out">Focus</animation>
+                            <animation effect="zoom" start="130" end="100" time="120" center="auto">unFocus</animation>
+                            <control type="image">
+                                <top>40</top>
+                                <height>184</height>
+                                <width>300</width>
+                                <texture>images/atvslider.png</texture>
+                            </control>
+                            <control type="Image" description="THUMB">
+                                <visible>!IsEmpty(Listitem.thumb)</visible>
+                                <left>20</left>
+                                <top>48</top>
+                                <height>168</height>
+                                <width>260</width>
+                                <texture diffuse="images/diffusehome.png">$INFO[ListItem.thumb]</texture>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                            </control>
+                            <control type="Image" description="THUMB">
+                                <visible>IsEmpty(Listitem.thumb)</visible>
+                                <left>20</left>
+                                <top>48</top>
+                                <height>168</height>
+                                <width>260</width>
+                                <texture diffuse="images/diffusehome.png">$INFO[ListItem.label2]</texture>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                            </control>
+                            <control type="label" description="Main Label">
+                                <centerleft>150</centerleft>
+                                <top>220</top>
+                                <width>300</width>
+                                <height>24</height>
+                                <align>center</align>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <content>	
+                        
+                         
+                        
+                        <item id="601" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav1)</visible>
+                            <thumb>icons\icon_film.png</thumb>
+                            <label>$LOCALIZE[342]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav1)</onclick>
+                        </item>
+                        <item id="601" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav1)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[342]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav1)</onclick>
+                        </item>
+						<item id="602" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav2)</visible>
+                            <thumb>icons\icon_serie.png</thumb>
+                            <label>$LOCALIZE[20343]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav2)</onclick>
+                        </item>
+                        <item id="602" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav2)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[20343]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav2)</onclick>
+                        </item>
+						<item id="603" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav3)</visible>
+                             <thumb>icons/icon_tv.png</thumb>
+                            <label>$LOCALIZE[31059]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav3)</onclick>
+                        </item>
+                        <item id="603" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav3)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31059]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav3)</onclick>
+                        </item>
+						<item id="604" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav4)</visible>
+                            <thumb>icons/icon_muziek.png</thumb>
+                            <label>$LOCALIZE[2]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav4)</onclick>
+                        </item>
+                        <item id="604" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav4)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[2]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav4)</onclick>
+                        </item>
+						<item id="605" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav5)</visible>
+                            <thumb>icons/icon_sport.png</thumb>
+                            <label>$LOCALIZE[31028]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav5)</onclick>
+                        </item>
+                        <item id="605" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav5)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31028]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav5)</onclick>
+                        </item>
+						<item id="606" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav6)</visible>
+                            <thumb>icons/icon_uitzendinggemist.png</thumb>
+                            <label>$LOCALIZE[31033]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav6)</onclick>
+                        </item>
+                        <item id="606" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav6)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31033]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav6)</onclick>
+                        </item>
+						<item id="607" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav7)</visible>
+                            <thumb>icons/icon_kidszone.png</thumb>
+                            <label>$LOCALIZE[31034]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav7)</onclick>
+                        </item>
+                        <item id="607" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav7)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31034]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav7)</onclick>
+                        </item>
+						<item id="608" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav8)</visible>
+                            <thumb>icons/icon_xxx.png</thumb>
+                            <label>XXX</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav8)</onclick>
+                        </item>
+                        <item id="608" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav8)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>XXX</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav8)</onclick>
+						</item>
+						<item id="610" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav10)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31035]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav10)</onclick>
+						</item>
+						<item id="611" description="HomeFav">
+                            <visible>!Skin.HasSetting(hidehomefav11)</visible>
+                            <thumb>icons/voor haar.png</thumb>
+                            <label>Youtube</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav11)</onclick>
+                        </item>
+                        <item id="611" description="HomeFav">
+                            <visible>Skin.HasSetting(hidehomefav11)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[31036]</label>
+                            <onclick>Skin.ToggleSetting(hidehomefav11)</onclick>
+						</item>
+                        <item id="1011" description="Sources">
+                            <visible>Skin.HasSetting(hideSources)</visible>
+                            <thumb>help/off.png</thumb>
+                            <label>$LOCALIZE[20094]</label>
+                            <onclick>Skin.ToggleSetting(hideSources)</onclick>
+                        </item>
+						<item id="1012" description="Favourites">
+							<visible>!Skin.HasSetting(hidefav)</visible>
+							<thumb>icons/favs.png</thumb>
+							<label>$LOCALIZE[1036]</label>
+							<onclick>Skin.ToggleSetting(hidefav)</onclick>
+						</item>
+						<item id="1012" description="Favourites">
+							<visible>Skin.HasSetting(hidefav)</visible>
+							<thumb>help/off.png</thumb>
+							<label>$LOCALIZE[1036]</label>
+							<onclick>Skin.ToggleSetting(hidefav)</onclick>
+						</item>
+						</content>
+            </control>
+        </control>
+		</control>
+    </controls>
+</window>

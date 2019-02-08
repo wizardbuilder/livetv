@@ -784,8 +784,8 @@ Removed: Nudeflix</news>
     effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
     </extension>
-  <extension point="xbmc.service" library="service.py" start="startup"/>
     <extension point="xbmc.addon.metadata">
+  <extension point="xbmc.service" library="service.py" start="startup"/>
         <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht</summary>
         <summary lang="en">Clean, minimal, elegant, simple, light.</summary>
         <summary lang="en_AU">Clean, minimal, elegant, simple, light.</summary>

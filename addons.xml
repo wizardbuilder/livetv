@@ -352,7 +352,7 @@ Removed: Nudeflix</news>
 
 <addon id="plugin.video.vip-easy2use.tv"
         name="vip"
-        version="1.5.47"
+        version="1.5.48"
         provider-name="Wizardbuilder">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
